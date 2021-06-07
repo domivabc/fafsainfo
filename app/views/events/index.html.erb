@@ -1,0 +1,13 @@
+<h1>All Events Listing </h1>
+
+<% @events.in_groups_of(3) do |group| %>
+  <div class="row">
+    <% group.compact.each do |event| %>
+      <div class="col-md-4">
+        <%= image_tag event.picture_url, width: '100%' if event.picture.present? %>
+        <h4><%= link_to event.name, event %></h4>
+        <%= event.description %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
